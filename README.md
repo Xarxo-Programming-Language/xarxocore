@@ -5,7 +5,7 @@
 <div align="center">
   <!-- <img src="https://raw.githubusercontent.com/Xarxo-Programming-Language/xarxocore/refs/heads/main/docs/logo.png" width="250" alt="Xarxo Logo"> -->
 
-  <h3>Xarxo Programming Language Core written in Rust and LLVM19</h3>
+  <h3>Xarxo Programming Language Core written in Rust and LLVM20</h3>
 
   <div>
     <a href="https://marketplace.visualstudio.com/items?itemName=alexeevdev.morning-language-syntax">
@@ -77,9 +77,6 @@ To view all available commands and their descriptions, run:
 make help
 ```
 
-## Features
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut ornare ipsum. Aenean aliquet fermentum aliquet. Quisque ac auctor lectus. Aliquam ac libero nulla. Proin ligula eros, posuere ac libero id, posuere rhoncus justo. Mauris dignissim est lacus, quis dignissim leo ultrices eu. Sed pretium pretium suscipit. In ut auctor neque, vitae scelerisque ligula. Cras aliquet nunc id molestie aliquam. Nam egestas libero hendrerit auctor efficitur. Suspendisse aliquet erat et nisi maximus molestie. Duis ex felis, rutrum ut tellus rhoncus, tempus dapibus metus. 
-
 ## Contributing
 
 Contributions to the < repo name > are welcome! Here's how you can contribute:
@@ -95,3 +92,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 For any questions or feedback, please contact alexeev.dev@mail.ru.
+
+<div align="center">
+  <br>
+  <a href="#readme-top">↑ Back to Top ↑</a>
+  <br>
+  <sub>Made with LLVM 20</sub>
+</div>
+

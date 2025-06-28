@@ -114,3 +114,200 @@ a.test-arrow {
 
 em.stab.unstable { background: rgba(249, 226, 175, 0.15); border-color: #f9e2af; } /* yellow */
 em.stab.deprecated { background: rgba(203, 166, 247, 0.15); border-color: #cba6f7; } /* mauve */
+
+/* Основные переменные Catppuccin Mocha */
+:root {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+    --text: #cdd6f4;
+    --subtext0: #a6adc8;
+    --subtext1: #bac2de;
+    --surface0: #313244;
+    --surface1: #45475a;
+    --surface2: #585b70;
+    --overlay0: #6c7086;
+    --overlay1: #7f849c;
+    --overlay2: #9399b2;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+    --sapphire: #74c7ec;
+    --sky: #89dceb;
+    --teal: #94e2d5;
+    --green: #a6e3a1;
+    --yellow: #f9e2af;
+    --peach: #fab387;
+    --maroon: #eba0ac;
+    --red: #f38ba8;
+    --mauve: #cba6f7;
+    --pink: #f5c2e7;
+    --flamingo: #f2cdcd;
+    --rosewater: #f5e0dc;
+}
+
+/* Переопределение тем */
+:root[data-theme="dark"],
+:root[data-theme="ayu"] {
+    /* Основные цвета */
+    --main-background-color: var(--base);
+    --main-color: var(--text);
+    --sidebar-background-color: var(--mantle);
+    --code-block-background-color: var(--mantle);
+    --scrollbar-track-background-color: var(--crust);
+    --scrollbar-thumb-background-color: var(--surface2);
+    --headings-border-bottom-color: var(--overlay0);
+    --border-color: var(--surface1);
+    --button-background-color: var(--surface0);
+    --right-side-color: var(--subtext0);
+    
+    /* Ссылки */
+    --link-color: var(--peach);
+    --sidebar-link-color: var(--subtext1);
+    --sidebar-current-link-background-color: var(--surface0);
+    
+    /* Поиск */
+    --search-input-focused-border-color: var(--sapphire);
+    --search-result-link-focus-background-color: var(--surface1);
+    
+    /* Код */
+    --code-highlight-comment-color: var(--overlay1);
+    --code-highlight-string-color: var(--green);
+    --code-highlight-keyword-color: var(--mauve);
+    
+    /* Таблицы */
+    --table-alt-row-background-color: var(--surface0);
+    
+    /* Интерактивные элементы */
+    --settings-input-color: var(--blue);
+    --copy-path-img-hover-filter: invert(75%) sepia(11%) saturate(1230%) hue-rotate(185deg);
+}
+
+/* Глобальные стили */
+body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: "Fira Sans", sans-serif;
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--subtext1);
+    border-bottom-color: var(--overlay0);
+}
+
+/* Боковая панель */
+.sidebar {
+    background-color: var(--mantle);
+    scrollbar-color: var(--surface2) var(--crust);
+}
+.sidebar a {
+    color: var(--subtext0);
+}
+.sidebar .current,
+.sidebar a:hover {
+    background-color: var(--surface0);
+    color: var(--text);
+}
+
+/* Код и преформатированный текст */
+pre, code, .docblock code {
+    background-color: var(--mantle);
+    border-radius: 6px;
+    font-family: "Fira Mono", monospace;
+}
+pre.rust .comment {
+    color: var(--overlay1);
+}
+pre.rust .doccomment {
+    color: var(--overlay1);
+}
+
+/* Таблицы */
+.docblock table {
+    border-color: var(--surface0);
+}
+.docblock table td,
+.docblock table th {
+    border-color: var(--surface0);
+}
+.docblock table tbody tr:nth-child(2n) {
+    background-color: var(--surface0);
+}
+
+/* Навигация и тулбары */
+nav.main .current {
+    border-color: var(--subtext1);
+}
+rustdoc-toolbar {
+    background: var(--surface0);
+}
+.search-input {
+    background-color: var(--surface0);
+    color: var(--text);
+}
+
+/* Подсветка синтаксиса */
+.content .highlighted {
+    background-color: var(--surface0) !important;
+}
+.content .highlighted.trait { background-color: rgba(137, 180, 250, 0.15); }
+.content .highlighted.mod { background-color: rgba(250, 179, 135, 0.15); }
+.content .highlighted.enum { background-color: rgba(203, 166, 247, 0.15); }
+.content .highlighted.struct { background-color: rgba(116, 199, 236, 0.15); }
+.content .highlighted.fn { background-color: rgba(137, 220, 235, 0.15); }
+.content .highlighted.method { background-color: rgba(166, 227, 161, 0.15); }
+
+/* Цвета элементов */
+.content span.primitive, .content a.primitive { color: var(--yellow); }
+.content span.mod, .content a.mod { color: var(--peach); }
+.content span.fn, .content a.fn, 
+.content span.method, .content a.method { color: var(--green); }
+.content span.trait, .content a.trait { color: var(--blue); }
+.docblock a, .stability a { color: var(--yellow); }
+
+/* Интерактивные элементы */
+button, .search-input, #settings-menu > a {
+    transition: all 0.2s ease;
+}
+button:hover, .search-input:focus, 
+#settings-menu > a:hover {
+    border-color: var(--sapphire);
+    box-shadow: 0 0 0 2px rgba(116, 199, 236, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 700px) {
+    .mobile-topbar {
+        background-color: var(--mantle);
+    }
+    .sidebar-menu-toggle::before {
+        filter: invert(90%);
+    }
+}
+
+/* Специфичные элементы rustdoc */
+.line-numbers span { color: var(--sapphire); }
+.line-numbers .line-highlighted {
+    background-color: var(--mantle) !important;
+}
+:target { background: var(--surface1); }
+em.stab.unstable { background: rgba(249, 226, 175, 0.15); }
+em.stab.deprecated { background: rgba(203, 166, 247, 0.15); }
+
+/* Иконки и визуальные элементы */
+#copy-path::before,
+#help-button > a::before {
+    filter: invert(85%);
+}
+#copy-path:hover::before {
+    filter: invert(100%);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.tooltip {
+    animation: fadeIn 0.3s ease-out;
+}

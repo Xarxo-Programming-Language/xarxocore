@@ -1,460 +1,303 @@
+/* Дополнения для полного покрытия rustdoc */
+
+/* Глобальные переменные с более глубокими цветами */
 :root {
-    --bg-primary: #2a2a2a;
-    --bg-secondary: #1d1d1d;
-    --bg-tertiary: #333333;
-    --text-primary: #f0f0f0;
-    --text-secondary: #b0b0b0;
-    --accent-primary: #4dabf7;
-    --accent-secondary: #38d9a9;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #121212;
+    --bg-tertiary: #252525;
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --accent-primary: #4d9de0;
+    --accent-secondary: #3dd1a5;
     --accent-tertiary: #ff6b6b;
-    --border-radius: 8px;
-    --transition-speed: 0.3s;
-    --shadow-primary: 0 6px 16px rgba(0,0,0,0.3);
-    --shadow-hover: 0 8px 24px rgba(0,0,0,0.4);
+    --border-color: #333;
+    --highlight-bg: #2a2a2a;
+    --code-bg: #1e1e1e;
+    --sidebar-bg: #1f1f1f;
+    --nav-bg: #222;
+    --shadow-primary: 0 6px 16px rgba(0,0,0,0.4);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.5);
 }
 
-/* Глобальные улучшения */
-* {
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
-
-body {
+/* Основные элементы rustdoc */
+.rustdoc {
     background: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.7;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    transition: background var(--transition-speed);
 }
 
-/* Адаптивная сетка */
-.container {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    grid-template-areas: "sidebar main";
-    min-height: 100vh;
+/* Навигация и заголовки */
+.mobile-topbar, .sidebar-menu-toggle {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
 }
 
-@media (max-width: 1024px) {
-    .container {
-        grid-template-columns: 1fr;
-        grid-template-areas: "main";
-    }
-    
-    .sidebar {
-        transform: translateX(-100%);
-        position: fixed;
-        z-index: 1000;
-        height: 100vh;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .sidebar.active {
-        transform: translateX(0);
-    }
-    
-    .sidebar-toggle {
-        display: block;
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1100;
-    }
-}
-
-/* Анимации */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(15px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(77, 171, 247, 0.4); }
-    70% { box-shadow: 0 0 0 12px rgba(77, 171, 247, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(77, 171, 247, 0); }
-}
-
-/* Заголовки с анимацией */
-h1, h2, h3, h4 {
-    position: relative;
-    padding-left: 1rem;
-    animation: fadeIn 0.6s ease-out;
-}
-
-h1::before, h2::before, h3::before, h4::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 4px;
-    background: var(--accent-primary);
-    border-radius: 2px;
-}
-
-h1.fqn {
-    border-bottom: 2px solid var(--accent-primary);
-    padding-bottom: 0.8rem;
-    animation: float 6s ease-in-out infinite;
-}
-
-/* Боковая панель */
 .sidebar {
-    grid-area: sidebar;
-    background: linear-gradient(160deg, #222, #1a1a1a);
-    box-shadow: var(--shadow-primary);
-    padding: 1.5rem 1rem;
-    overflow-y: auto;
-    z-index: 100;
-    transition: transform var(--transition-speed);
+    background: linear-gradient(160deg, #1a1a1a, #151515);
+    border-right: 1px solid var(--border-color);
 }
 
-.sidebar .location {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-    border-radius: var(--border-radius);
+.sidebar-crate {
+    border-bottom: 1px solid var(--border-color);
     padding: 1rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all var(--transition-speed);
-    animation: fadeIn 0.5s ease-out;
+    background: rgba(0,0,0,0.2);
 }
 
-.sidebar .location:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-}
-
-/* Главный контент */
-.main {
-    grid-area: main;
-    padding: 2rem 3rem;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .main {
-        padding: 1.5rem;
-    }
-}
-
-/* Навигация */
-nav {
-    background: rgba(30, 30, 30, 0.95);
-    backdrop-filter: blur(12px);
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 500;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-nav.main .current {
-    color: var(--accent-secondary);
-    position: relative;
-}
-
-nav.main .current::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--accent-secondary);
-    border-radius: 2px;
-    animation: pulse 2s infinite;
-}
-
-/* Блоки кода */
-pre, .docblock code {
-    background: var(--bg-secondary);
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--accent-primary);
-    box-shadow: var(--shadow-primary);
-    padding: 1.5rem;
-    overflow: auto;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.95rem;
-    transition: all var(--transition-speed);
-}
-
-pre:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-}
-
-pre.rust .comment { color: #6a9955; }
-pre.rust .doccomment { color: #57a64a; text-shadow: 0 0 5px rgba(87, 166, 74, 0.2); }
-
-.line-numbers span { color: var(--accent-primary); }
-.line-numbers .line-highlighted {
-    background: linear-gradient(90deg, rgba(58, 123, 213, 0.2), transparent) !important;
-    box-shadow: inset 4px 0 0 var(--accent-primary);
-    animation: highlight-pulse 2s ease-out;
-}
-
-@keyframes highlight-pulse {
-    0% { background: rgba(58, 123, 213, 0.4); }
-    100% { background: rgba(58, 123, 213, 0.2); }
-}
-
-/* Элементы контента */
-.content > section {
-    background: rgba(40, 40, 40, 0.6);
-    border-radius: var(--border-radius);
-    padding: 1.8rem;
-    margin-bottom: 2rem;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: all var(--transition-speed);
-    animation: fadeIn 0.4s ease-out;
-}
-
-.content > section:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(77, 171, 247, 0.2);
-}
-
-.content .highlighted {
-    border-radius: var(--border-radius);
-    padding: 1.2rem;
-    margin: 1.2rem 0;
-    transition: all var(--transition-speed);
-}
-
-.content .highlighted:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-hover);
-}
-
-/* Цвета элементов */
-.content .highlighted.trait { 
-    background: linear-gradient(135deg, #2c3e50, #4a6491);
-    animation: float 8s ease-in-out infinite;
-}
-.content .highlighted.mod { background: linear-gradient(135deg, #603813, #9c5518); }
-.content .highlighted.enum { background: linear-gradient(135deg, #414066, #6a5d9c); }
-.content .highlighted.struct { 
-    background: linear-gradient(135deg, #1d4e89, #2a75bb);
-    animation: float 7s ease-in-out infinite 0.5s;
-}
-.content .highlighted.fn { background: linear-gradient(135deg, #3a0ca3, #4361ee); }
-.content .highlighted.method,
-.content .highlighted.tymethod { 
-    background: linear-gradient(135deg, #2d6a4f, #40916c);
-    animation: float 6s ease-in-out infinite 1s;
-}
-
-/* Ссылки и интерактив */
-a {
+.sidebar-crate h2 a {
     color: var(--accent-primary);
-    text-decoration: none;
-    position: relative;
-    transition: color var(--transition-speed);
-}
-
-a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent-secondary);
-    transition: width var(--transition-speed);
-}
-
-a:hover::after {
-    width: 100%;
-}
-
-a:hover {
-    color: var(--accent-secondary);
-}
-
-/* Таблицы */
-.docblock table {
-    width: 100%;
-    background: var(--bg-secondary);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-primary);
-    border-collapse: collapse;
-    animation: fadeIn 0.5s ease-out;
-}
-
-.docblock table th {
-    background: rgba(77, 171, 247, 0.15);
-    padding: 1rem;
-    text-align: left;
     font-weight: 600;
 }
 
-.docblock table td {
-    padding: 0.8rem 1rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
+.sidebar-elems ul.block {
+    border-top: 1px solid var(--border-color);
 }
 
-.docblock table tr {
-    transition: background var(--transition-speed);
+.sidebar-elems li a {
+    color: var(--text-secondary);
+    transition: all var(--transition-speed);
 }
 
-.docblock table tr:hover {
+.sidebar-elems li a:hover {
+    color: var(--accent-secondary);
     background: rgba(255,255,255,0.05);
 }
 
-/* Поиск */
-.search-container {
-    position: relative;
-    margin: 1.5rem 0;
+/* Поиск и toolbar */
+.rustdoc-search {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-form {
+    background: var(--bg-tertiary);
 }
 
 .search-input {
-    background: rgba(255,255,255,0.95);
-    border: 2px solid transparent;
-    border-radius: 50px;
-    padding: 0.8rem 1.5rem 0.8rem 3rem;
-    width: 100%;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
-    font-size: 1rem;
-    color: #333;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 .search-input:focus {
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 4px rgba(77, 171, 247, 0.3), 0 8px 24px rgba(0,0,0,0.15);
-    padding-right: 4.5rem;
+    box-shadow: 0 0 0 2px rgba(77, 157, 224, 0.3);
 }
 
-.search-icon {
-    position: absolute;
-    left: 1.2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-    transition: color var(--transition-speed);
+.rustdoc-toolbar {
+    background: var(--nav-bg);
 }
 
-.search-input:focus + .search-icon {
+.rustdoc-toolbar button, .rustdoc-toolbar a {
+    color: var(--text-secondary);
+}
+
+.rustdoc-toolbar button:hover, .rustdoc-toolbar a:hover {
     color: var(--accent-primary);
 }
 
-/* Статус-баджи */
-em.stab {
-    border-radius: 50px;
-    padding: 0.3rem 1rem;
-    font-weight: 600;
-    font-size: 0.8em;
-    display: inline-block;
-    margin: 0.2rem;
-    transition: all var(--transition-speed);
-    animation: fadeIn 0.4s ease-out;
+/* Основной контент */
+.main-heading {
+    border-bottom: 1px solid var(--border-color);
 }
 
-em.stab:hover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+.main-heading h1 {
+    color: var(--accent-primary);
 }
 
-em.stab.unstable { 
-    background: linear-gradient(135deg, #ff9e00, #ff7700);
-    color: #222;
-    animation: pulse 3s infinite;
+#copy-path {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
 }
 
-em.stab.deprecated { 
-    background: linear-gradient(135deg, #9d4edd, #7b2cbf);
-    animation: float 5s ease-in-out infinite;
+#copy-path:hover {
+    background: var(--accent-primary);
+    color: white;
 }
 
-/* Подсветка типов */
-.content span.primitive, .content a.primitive { 
-    color: #ffd43b;
-    font-weight: 700;
-    text-shadow: 0 0 8px rgba(255, 212, 59, 0.3);
+/* Секции и элементы */
+.section-header {
+    color: var(--accent-secondary);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.content span.mod, .content a.mod { 
-    color: #ffa94d;
+.item-table {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    padding: 1rem;
 }
 
-.content span.fn, .content a.fn,
-.content span.method, .content a.method,
-.content span.tymethod, .content a.tymethod,
-.content .fnname { 
+.item-table dt a.fn {
     color: var(--accent-secondary);
     font-weight: 600;
 }
 
-.content span.trait, .content a.trait { 
-    color: #a9e34b;
+.item-table dt a.fn:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+/* Якорные ссылки */
+.anchor {
+    color: var(--text-secondary);
+}
+
+.anchor:hover {
+    color: var(--accent-primary);
+}
+
+/* Подсветка видимости */
+span.title.visibility {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+/* Дополнительные элементы интерфейса */
+.width-limiter {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.sidebar-resizer {
+    background: var(--border-color);
+}
+
+.sidebar-resizer:hover {
+    background: var(--accent-primary);
+}
+
+/* Адаптивные улучшения */
+@media (max-width: 768px) {
+    .mobile-topbar {
+        background: var(--nav-bg);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    
+    .sidebar-menu-toggle {
+        color: var(--accent-primary);
+    }
+    
+    .main-heading {
+        padding: 1rem;
+    }
+}
+
+/* Специфичные классы rustdoc */
+.src {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+.src:hover {
+    color: var(--accent-primary);
+}
+
+.version {
+    color: var(--text-secondary);
+    font-size: 0.8em;
+}
+
+.sub-heading {
+    color: var(--text-secondary);
+}
+
+/* Улучшенные цвета для разных типов элементов */
+.item-table .mod { color: #ffa94d; }
+.item-table .fn { color: #3dd1a5; }
+.item-table .struct { color: #4d9de0; }
+.item-table .enum { color: #9d4edd; }
+.item-table .trait { color: #88aa00; }
+.item-table .type { color: #38d9a9; }
+.item-table .macro { color: #ff6b6b; }
+
+/* Анимации для интерактивных элементов */
+.item-table dt {
+    transition: transform var(--transition-speed);
+}
+
+.item-table dt:hover {
+    transform: translateX(5px);
+}
+
+/* Подсветка текущего элемента в навигации */
+.sidebar-elems li.current a {
+    color: var(--accent-primary);
+    font-weight: 600;
     position: relative;
 }
 
-/* Темная/светлая тема */
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg-primary: #f8f9fa;
-        --bg-secondary: #ffffff;
-        --bg-tertiary: #e9ecef;
-        --text-primary: #212529;
-        --text-secondary: #495057;
-        --accent-primary: #1a73e8;
-        --accent-secondary: #0d8a72;
-        --shadow-primary: 0 4px 12px rgba(0,0,0,0.08);
-        --shadow-hover: 0 8px 24px rgba(0,0,0,0.12);
-    }
-    
-    pre, .docblock code {
-        border-left: 4px solid var(--accent-primary);
-    }
-    
-    .sidebar {
-        background: linear-gradient(160deg, #e9ecef, #dee2e6);
-    }
-    
-    .content .highlighted {
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    
-    .docblock table tr:hover {
-        background: rgba(0,0,0,0.03);
-    }
+.sidebar-elems li.current a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent-primary);
 }
 
-/* Интерактивная кнопка */
-.sidebar-toggle {
-    display: none;
+/* Дополнительные эффекты для улучшения UX */
+.main-heading h1 span {
+    text-shadow: 0 0 10px rgba(77, 157, 224, 0.3);
+}
+
+.section-header::before {
+    content: '#';
+    color: var(--accent-primary);
+    margin-right: 0.5rem;
+    opacity: 0.7;
+}
+
+/* Улучшенный футер (если есть) */
+.rustdoc-footer {
+    background: var(--nav-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 1rem;
+}
+
+/* Эффекты для кнопок */
+button, .button {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+button:hover, .button:hover {
     background: var(--accent-primary);
     color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: var(--shadow-primary);
-    transition: all var(--transition-speed);
-    animation: pulse 2s infinite;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(77, 157, 224, 0.3);
 }
 
-.sidebar-toggle:hover {
-    transform: rotate(90deg);
-    background: var(--accent-secondary);
+/* Специальные эффекты для важных элементов */
+#toggle-all-docs {
+    background: linear-gradient(135deg, var(--bg-tertiary), var(--nav-bg));
+    border: 1px solid var(--accent-primary);
+}
+
+#toggle-all-docs:hover {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* Поддержка темной темы для всех элементов */
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #0a0a0a;
+    --text-primary: #f0f0f0;
+    --border-color: #2a2a2a;
+}
+
+/* Анимация загрузки */
+@keyframes rustdoc-loading {
+    0% { opacity: 0.3; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.content > * {
+    animation: rustdoc-loading 0.5s ease-out;
 }

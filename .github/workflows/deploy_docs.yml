@@ -23,7 +23,7 @@ jobs:
         override: true
 
     - name: Generate Documentation
-      run: cargo doc --no-deps --features without-llvm -Z unstable-options --extend-css docs/dark.css
+      run: cargo rustdoc --no-deps --features without-llvm --extend-css docs/dark.css
 
     - name: Glue in an index
       run: echo "<meta http-equiv=\"refresh\" content=\"0; url=xarxocore\">" > target/doc/index.html

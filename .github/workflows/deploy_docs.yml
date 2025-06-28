@@ -1,0 +1,32 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - main  # Set to  default branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Generate Documentation
+      run: cargo doc --no-deps
+
+    - name: Glue in an index
+      run: echo "<meta http-equiv=\"refresh\" content=\"0; url=rust_project_template\">" > target/doc/index.html
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_branch: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./target/doc

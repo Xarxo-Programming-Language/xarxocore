@@ -8,7 +8,6 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    # Grant write permissions to the token
     permissions:
       contents: write   # Required for gh-pages deployment
       pages: write      # Required for GitHub Pages

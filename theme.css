@@ -1,0 +1,116 @@
+body {
+    background-color: #1e1e2e;   /* base */
+    color: #cdd6f4;              /* text */
+}
+
+h1, h2, h3:not(.impl):not(.method):not(.type):not(.tymethod), h4:not(.method):not(.type):not(.tymethod) {
+    color: #bac2de;              /* subtext1 */
+}
+h1.fqn {
+    border-bottom-color: #6c7086; /* overlay0 */
+}
+h2, h3:not(.impl):not(.method):not(.type):not(.tymethod), h4:not(.method):not(.type):not(.tymethod) {
+    border-bottom-color: #6c7086; /* overlay0 */
+}
+
+.in-band {
+    background-color: #313244;    /* surface0 */
+}
+
+.docblock code {
+    background-color: #181825;    /* mantle */
+}
+pre {
+    background-color: #181825;    /* mantle */
+}
+
+.sidebar .location {
+    background: #45475a;         /* surface1 */
+    color: #a6adc8;              /* subtext0 */
+}
+
+.block a:hover {
+    background: #585b70;         /* surface2 */
+}
+
+.line-numbers span { color: #89b4fa; } /* blue */
+.line-numbers .line-highlighted {
+    background-color: #1e1e2e !important; /* base */
+}
+
+:target { background: #45475a; } /* surface1 */
+.content .highlighted {
+    color: #cdd6f4 !important;   /* text */
+    background-color: #313244;    /* surface0 */
+}
+.content .highlighted a, .content .highlighted span { color: #cdd6f4 !important; } /* text */
+.content .highlighted.trait { background-color: rgba(137, 180, 250, 0.15); } /* blue + opacity */
+.content .highlighted.mod { background-color: rgba(250, 179, 135, 0.15); }    /* peach + opacity */
+.content .highlighted.enum { background-color: rgba(203, 166, 247, 0.15); }   /* mauve + opacity */
+.content .highlighted.struct { background-color: rgba(116, 199, 236, 0.15); } /* sapphire + opacity */
+.content .highlighted.fn { background-color: rgba(137, 220, 235, 0.15); }     /* sky + opacity */
+.content .highlighted.method { background-color: rgba(166, 227, 161, 0.15); } /* green + opacity */
+.content .highlighted.tymethod { background-color: rgba(166, 227, 161, 0.15); } /* green + opacity */
+.content .highlighted.type { background-color: rgba(148, 226, 213, 0.15); }   /* teal + opacity */
+
+.docblock h1, .docblock h2, .docblock h3, .docblock h4, .docblock h5 {
+    border-bottom: 1px solid #313244; /* surface0 */
+}
+
+.docblock table {
+    border-color: #313244;        /* surface0 */
+}
+
+.docblock table td {
+    border-top-color: #313244;    /* surface0 */
+    border-bottom-color: #313244; /* surface0 */
+}
+
+.docblock table th {
+    border-top-color: #313244;    /* surface0 */
+    border-bottom-color: #313244; /* surface0 */
+}
+
+.content span.primitive, .content a.primitive, .block a.current.primitive { color: #f9e2af; } /* yellow */
+.content span.externcrate,
+.content span.mod, .content a.mod, .block a.current.mod { color: #fab387; } /* peach */
+.content span.fn, .content a.fn, .block a.current.fn,
+.content span.method, .content a.method, .block a.current.method,
+.content span.tymethod, .content a.tymethod, .block a.current.tymethod,
+.content .fnname { color: #a6e3a1; } /* green */
+
+pre.rust .comment { color: #6c7086; } /* overlay0 */
+pre.rust .doccomment { color: #7f849c; } /* overlay1 */
+
+nav {
+    border-bottom-color: #45475a; /* surface1 */
+}
+nav.main .current {
+    border-top-color: #bac2de;    /* subtext1 */
+    border-bottom-color: #bac2de; /* subtext1 */
+}
+nav.main .separator {
+    border-color: #bac2de;        /* subtext1 */
+}
+a {
+    color: #a6adc8;              /* subtext0 */
+}
+
+.docblock a, .stability a {
+    color: #f9e2af;              /* yellow */
+}
+
+a.test-arrow {
+    color: #bac2de;              /* subtext1 */
+}
+
+.content span.trait, .content a.trait, .block a.current.trait { color: #89b4fa; } /* blue */
+
+.search-input {
+    color: #cdd6f4;              /* text */
+    box-shadow: 0 0 0 1px #585b70, 0 0 0 2px transparent; /* surface2 */
+    background-color: #313244;    /* surface0 */
+}
+
+em.stab.unstable { background: rgba(249, 226, 175, 0.15); border-color: #f9e2af; } /* yellow */
+em.stab.deprecated { background: rgba(203, 166, 247, 0.15); border-color: #cba6f7; } /* mauve */

@@ -8,8 +8,8 @@
   <h3>Xarxo Programming Language Core written in Rust and LLVM20</h3>
 
   <div>
-    <a href="https://marketplace.visualstudio.com/items?itemName=alexeevdev.morning-language-syntax">
-      <img src="https://img.shields.io/badge/VSCode-extension?style=for-the-badge&logo=gitbook" alt="Docs">
+    <a href="https://xarxo-programming-language.github.io/Xarxo-Programming-Language/">
+        <img src="https://img.shields.io/badge/Check-site-blue?style=for-the-badge" alt="License">
     </a>
     <a href="https://github.com/Xarxo-Programming-Language/xarxocore/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-GPL_v3-blue?style=for-the-badge&logo=gnu" alt="License">
@@ -40,13 +40,16 @@
   <img src="https://raw.githubusercontent.com/Xarxo-Programming-Language/xarxocore/refs/heads/main/docs/pallet-0.png" width="600" alt="Color Palette">
 </div>
 
+ > Follow one path, but make it comfortable
+
+A minimalistic yet powerful language with innovative error handling and contracts, designed for developers who value performance and expressiveness in systems programming.
+
 ## Table of Contents
 
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
 - [Usage](#usage)
-- [Features](#features)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)

@@ -19,7 +19,7 @@ jobs:
         override: true
 
     - name: Generate Documentation
-      run: cargo doc --no-deps
+      run: cargo doc --no-deps --features without-llvm
 
     - name: Glue in an index
       run: echo "<meta http-equiv=\"refresh\" content=\"0; url=rust_project_template\">" > target/doc/index.html

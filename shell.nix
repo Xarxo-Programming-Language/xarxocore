@@ -6,6 +6,8 @@ let
     cargo
     rustc
     lld
+    rustls-libssl
+    openssl
     pkg-config
     gdb
   ];

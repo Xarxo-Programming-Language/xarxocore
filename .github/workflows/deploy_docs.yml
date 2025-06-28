@@ -3,14 +3,19 @@ name: Deploy Docs
 on:
   push:
     branches:
-      - main  # Set to  default branch
+      - main
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    # Grant write permissions to the token
+    permissions:
+      contents: write   # Required for gh-pages deployment
+      pages: write      # Required for GitHub Pages
+      id-token: write   # Required for GitHub Pages
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup Rust
       uses: actions-rs/toolchain@v1
@@ -28,5 +33,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         publish_branch: gh-pages
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided
         publish_dir: ./target/doc

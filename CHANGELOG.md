@@ -1,3 +1,9 @@
+commit f65b055e0c0cdad240fbb8b44f699924d7054d9f
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 04:42:38 2025 +0700
+
+    fix deploy_docs.yml
+
 commit 789577310fa51755149eceba4367597d874fa405
 Merge: d778ba0 8d38985
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>

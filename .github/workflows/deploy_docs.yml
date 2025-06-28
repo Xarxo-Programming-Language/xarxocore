@@ -27,7 +27,7 @@ jobs:
       run: cargo doc --no-deps --features without-llvm
 
     - name: Glue in an index
-      run: echo "<meta http-equiv=\"refresh\" content=\"0; url=rust_project_template\">" > target/doc/index.html
+      run: echo "<meta http-equiv=\"refresh\" content=\"0; url=xarxocore\">" > target/doc/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3

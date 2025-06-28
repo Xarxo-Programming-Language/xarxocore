@@ -1,0 +1,12 @@
+[package]
+name = "xarxocore"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+colored = "3.0.0"
+docopt = "1.1.1"
+llvm-sys = "191"
+nom = "8.0.0"
+regex = "1.11.1"
+rustc-serialize = "0.3.25"

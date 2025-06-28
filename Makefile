@@ -24,7 +24,7 @@ lint: ## Lint the code
 	cargo clippy --quiet
 
 test: ## Run the tests
-	cargo test --quiet
+	cargo test --quiet --features without-llvm
 
 run: ## Run the binary
 	cargo run

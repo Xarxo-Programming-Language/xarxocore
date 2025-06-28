@@ -54,7 +54,7 @@ jobs:
         with:
           tool: cross
       - name: Build release binary
-        run: cross build --locked --release --target {{ "${{ matrix.job.target }}" }}
+        run: cross build --locked --release --target {{ "${{ matrix.job.target }}" }} --features without-llvm
 
       - name: install strip command
         if: matrix.job.target == 'aarch64-unknown-linux-gnu'

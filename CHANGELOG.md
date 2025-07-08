@@ -1,3 +1,81 @@
+commit 538b1491efdc5fa34c84c42d9b9c1fd4e2be3fe0
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Tue Jul 8 11:56:29 2025 +0700
+
+    update environmenmt
+
+commit a3827b4dd7065117387b912270703107545b3f5e
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 06:08:16 2025 +0700
+
+    fix docs workflow
+
+commit fc3a33ee289061f8fc8390c55125cc0f6ea6e980
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 06:05:00 2025 +0700
+
+    update docs styles
+
+commit 9dacc7a599dbd294cec916a8b26768e26436e3b9
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 06:02:13 2025 +0700
+
+    update docs styles
+
+commit 428fac56a127b8bb7a092b5989a9bd7287596782
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:57:08 2025 +0700
+
+    update docs styles
+
+commit 890dd63d94f06b0894f7daff5ddcbd276aaad60f
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:47:52 2025 +0700
+
+    update docs styles
+
+commit f0a1f578f7a5311d91c75458f43bf18a504787d1
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:40:31 2025 +0700
+
+    update docs styles
+
+commit 0f6d289f6b4970a80c856622a7249cab3cac4dcc
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:36:16 2025 +0700
+
+    update docs styles
+
+commit 853483f82df2e89e10a9ac465fd68e20795db067
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:28:54 2025 +0700
+
+    fix docs workflow
+
+commit c35d2950e5ae98a8788af4b917657c352dad40a5
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:26:44 2025 +0700
+
+    fix docs workflow
+
+commit 236dde33a27dff7c7b5da03ac0d76da6a9cda96f
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:25:28 2025 +0700
+
+    fix docs workflow
+
+commit a1233e8448a949d6aa45938b8a95aac62c463e66
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:23:38 2025 +0700
+
+    fix docs workflow
+
+commit 0411c4face55a56b142a1867dda6e7edafcc80fe
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sun Jun 29 05:21:14 2025 +0700
+
+    update docs workflow
+
 commit 88bc5b5ab939c8c8eddadfc7df249023fc5d781e
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>
 Date:   Sun Jun 29 05:07:15 2025 +0700

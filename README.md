@@ -5,7 +5,7 @@
 <div align="center">
   <!-- <img src="https://raw.githubusercontent.com/Xarxo-Programming-Language/xarxocore/refs/heads/main/docs/logo.png" width="250" alt="Xarxo Logo"> -->
 
-  <h3>Xarxo Programming Language Core written in Rust and LLVM20</h3>
+  <h3>Xarxo Programming Language Core written in Rust</h3>
 
   <div>
     <a href="https://xarxo-programming-language.github.io/Xarxo-Programming-Language/">
@@ -41,6 +41,8 @@
 </div>
 
  > Follow one path, but make it comfortable
+
+Xarxo - programming language with virtual machine.
 
 A minimalistic yet powerful language with innovative error handling and contracts, designed for developers who value performance and expressiveness in systems programming.
 
@@ -100,6 +102,5 @@ For any questions or feedback, please contact alexeev.dev@mail.ru.
   <br>
   <a href="#readme-top">↑ Back to Top ↑</a>
   <br>
-  <sub>Made with LLVM 20</sub>
 </div>
 

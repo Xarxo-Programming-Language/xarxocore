@@ -1,2 +1,2 @@
-window.ALL_CRATES = ["xarxocore"];
-//{"start":21,"fragment_lengths":[11]}
+window.ALL_CRATES = ["anstream","anstyle","anstyle_parse","anstyle_query","clap","clap_builder","clap_lex","colorchoice","is_terminal_polyfill","memchr","nom","strsim","utf8parse","xarxocore"];
+//{"start":21,"fragment_lengths":[10,10,16,16,7,15,11,14,23,9,6,9,12,12]}

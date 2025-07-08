@@ -8,8 +8,7 @@ on:
     paths:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
-  pull_request:
-{% raw  %}
+    pull_request:
 jobs:
   audit:
     runs-on: ubuntu-latest
